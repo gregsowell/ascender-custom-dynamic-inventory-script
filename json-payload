@@ -1,0 +1,44 @@
+{
+  "hosts": [
+    {
+      "id": 1,
+      "hostname": "host1.example.com",
+      "ip_address": "192.168.1.101",
+      "status": "active",
+      "os": "Linux",
+      "owner": "Admin User"
+    },
+    {
+      "id": 2,
+      "hostname": "host2.example.com",
+      "ip_address": "192.168.1.102",
+      "status": "inactive",
+      "os": "Windows",
+      "owner": "User 1"
+    },
+    {
+      "id": 3,
+      "hostname": "host3.example.com",
+      "ip_address": "192.168.1.103",
+      "status": "active",
+      "os": "Linux",
+      "owner": "User 2"
+    },
+    {
+      "id": 4,
+      "hostname": "host4.example.com",
+      "ip_address": "192.168.1.104",
+      "status": "active",
+      "os": "Windows",
+      "owner": "User 3"
+    },
+    {
+      "id": 5,
+      "hostname": "host5.example.com",
+      "ip_address": "192.168.1.105",
+      "status": "inactive",
+      "os": "Linux",
+      "owner": "User 4"
+    }
+  ]
+}
