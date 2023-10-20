@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#test import
+#test import script
 import json
 
 # Specify the path to the JSON payload file
