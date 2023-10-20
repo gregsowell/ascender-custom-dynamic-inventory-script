@@ -40,7 +40,6 @@ for host in inventory_data['hosts']:
     # Create host-specific variables
     host_vars = {
         'ansible_host': ip_address,
-        'ansible_user': 'ssh_user',  # Change to your SSH username
         'status': status,
         'os': os,
         'owner': owner
