@@ -32,6 +32,7 @@ for host in inventory_data['hosts']:
     ip_address = host['ip_address']
     status = host['status']
     os = host['os']
+    location = host['location']
     owner = host['owner']
 
     # Add the host to the 'all' group
@@ -43,6 +44,7 @@ for host in inventory_data['hosts']:
         'ansible_user': 'ssh_user',  # Change to your SSH username
         'status': status,
         'os': os,
+        'location': location,
         'owner': owner
         # Add more variables as needed
     }
