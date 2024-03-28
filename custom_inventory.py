@@ -28,6 +28,9 @@ ansible_inventory = {
 # Initialize group dictionaries for each OS
 os_groups = {}
 
+# Initialize group dictionaries for each location
+location_groups = {}
+
 # Process each host in the JSON payload
 for host in inventory_data['hosts']:
     host_id = host['id']
@@ -61,8 +64,18 @@ for host in inventory_data['hosts']:
         }
     os_groups[os]['hosts'].append(hostname)
 
+    # Add the host to the corresponding location group
+    if location not in location_groups:
+        location_groups[location] = {
+            'hosts': []
+        }
+    location_groups[location]['hosts'].append(hostname)
+
 # Add the OS groups to the inventory
 ansible_inventory.update(os_groups)
+
+# Add the location groups to the inventory
+ansible_inventory.update(location_groups)
 
 # Print the inventory in JSON format
 print(json.dumps(ansible_inventory, indent=4))
