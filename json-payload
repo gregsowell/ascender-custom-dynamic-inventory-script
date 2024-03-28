@@ -44,7 +44,7 @@
       "os": "Linux",
       "location": "dal-dc1",
       "owner": "User 4"
-    }
+    },
     {
       "id": 6,
       "hostname": "host6.example.com",
