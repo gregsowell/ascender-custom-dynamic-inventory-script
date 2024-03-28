@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-#test import
+#test import script
 import json
 
 # Specify the path to the JSON payload file
@@ -25,6 +25,9 @@ ansible_inventory = {
     }
 }
 
+# Initialize group dictionaries for each OS
+os_groups = {}
+
 # Process each host in the JSON payload
 for host in inventory_data['hosts']:
     host_id = host['id']
@@ -41,7 +44,6 @@ for host in inventory_data['hosts']:
     # Create host-specific variables
     host_vars = {
         'ansible_host': ip_address,
-        'ansible_user': 'ssh_user',  # Change to your SSH username
         'status': status,
         'os': os,
         'location': location,
@@ -51,6 +53,16 @@ for host in inventory_data['hosts']:
 
     # Add the host variables to the '_meta' dictionary
     ansible_inventory['_meta']['hostvars'][hostname] = host_vars
+
+    # Add the host to the corresponding OS group
+    if os not in os_groups:
+        os_groups[os] = {
+            'hosts': []
+        }
+    os_groups[os]['hosts'].append(hostname)
+
+# Add the OS groups to the inventory
+ansible_inventory.update(os_groups)
 
 # Print the inventory in JSON format
 print(json.dumps(ansible_inventory, indent=4))
